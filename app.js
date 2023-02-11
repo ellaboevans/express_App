@@ -15,5 +15,5 @@ app.get("/portfolio.html", (req, res) => {
 });
 
 app.listen(3000, "localhost", () => {
-  console.log("Server running on port 3000");
+  console.log("Server successfully running on port 3000");
 });
