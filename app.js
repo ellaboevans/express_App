@@ -7,12 +7,10 @@ app.get("/index.html", (req, res) => {
 });
 
 app.get("/about.html", (req, res) => {
-  console.log(req);
   res.sendFile("./pages/about.html", { root: __dirname });
 });
 
 app.get("/portfolio.html", (req, res) => {
-  // console.log(req.url)
   res.sendFile("./pages/portfolio.html", { root: __dirname });
 });
 
