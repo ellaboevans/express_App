@@ -14,11 +14,12 @@
       }
       section {
         width: 100vw;
-        height: 85vh;
+        /* height: 85vh; */
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 5.5rem;
+        /* gap: 5.5rem; */
       }
       .error {
         text-align: center;
@@ -52,6 +53,13 @@
       nav a:hover {
         color: #ccc;
       }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10rem;
+      }
     </style>
   </head>
   <body>
@@ -63,15 +71,20 @@
       </nav>
     </header>
     <section>
-      <div class="error">
-        <h1>404 Page!</h1>
-        <p>...Oops! Page cannot be found.</p>
+      <div class="container">
+        <div class="error">
+          <h1>404 Page!</h1>
+          <p>...Oops! Page cannot be found.</p>
+        </div>
+        <div class="robots">
+          <img
+            src="https://foomandoonian.files.wordpress.com/2013/07/google-404-robot.png"
+            alt="error-404-robots"
+          />
+        </div>
       </div>
-      <div class="robots">
-        <img
-          src="https://foomandoonian.files.wordpress.com/2013/07/google-404-robot.png"
-          alt="error-404-robots"
-        />
+      <div>
+        <a href="/" class="return-home">Return home</a>
       </div>
     </section>
   </body>
