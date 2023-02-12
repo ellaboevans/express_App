@@ -95,7 +95,9 @@
         <h1>About Page</h1>
         <% if (paragraphs.length > 0) {%> <% paragraphs.forEach(paragraph => {%>
         <p><%= paragraph.snippet%></p>
-        <%})%> <%}%>
+        <%})%> <%}else {%>
+          <p>There are no information to display.</p>
+          <%}%>
         <div>
           <img
             src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w"
