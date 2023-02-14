@@ -6,6 +6,23 @@ const app = express();
 // Register view engine
 app.set("view engine", "ejs");
 
+app.listen(3000, "localhost", () => {
+  console.log("Server successfully running on port 3000");
+});
+
+app.use((req, res, next) => {
+  console.log("new request made:");
+  console.log("host:", req.hostname);
+  console.log("path:", req.path);
+  console.log("method:", req.method);
+  next();
+});
+
+app.use((req, res, next) => {
+  console.log("in the next middleware");
+  next();
+});
+
 app.get("/", (req, res) => {
   const blogs = [
     {
@@ -75,8 +92,4 @@ app.get("/blogs/create", (req, res) => {
 // 404 Page
 app.use((req, res) => {
   res.status(404).render("404", { title: "404" });
-});
-
-app.listen(3000, "localhost", () => {
-  console.log("Server successfully running on port 3000");
 });
