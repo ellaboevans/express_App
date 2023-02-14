@@ -8,14 +8,20 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   const blogs = [
-    { title: "Evans Elabo", snippet: "Lorem ipsum dolor sit amet consectetur" },
+    {
+      title: "Evans Elabo",
+      snippet:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt itaque hic dolores sequi enim officiis facere, adipisci necessitatibus totam magnam debitis magni fugiat a facilis nobis! Tempora, sequi consequatur. Est sint expedita aperiam cum alias fuga eligendi omnis, quia repellendus saepe eaque voluptate reprehenderit sapiente facilis rem nam error deleniti suscipit id quos modi odit laborum voluptates delectus? Minima veritatis eius nulla sint voluptatibus corrupti quos qui, expedita, delectus iure saepe commodi sunt? Dolorum ducimus consequatur doloremque architecto itaque, facilis corrupti consectetur! Pariatur consequatur et delectus assumenda sit. Aspernatur doloremque non quaerat blanditiis perferendis ipsum quae ut molestias ad eos!",
+    },
     {
       title: "Concept Creator",
-      snippet: "Lorem ipsum dolor sit amet consectetur",
+      snippet:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt itaque hic dolores sequi enim officiis facere, adipisci necessitatibus totam magnam debitis magni fugiat a facilis nobis! Tempora, sequi consequatur. Est sint expedita aperiam cum alias fuga eligendi omnis, quia repellendus saepe eaque voluptate reprehenderit sapiente facilis rem nam error deleniti suscipit id quos modi odit laborum voluptates delectus? Minima veritatis eius nulla sint voluptatibus corrupti quos qui, expedita, delectus iure saepe commodi sunt? Dolorum ducimus consequatur doloremque architecto itaque, facilis corrupti consectetur! Pariatur consequatur et delectus assumenda sit. Aspernatur doloremque non quaerat blanditiis perferendis ipsum quae ut molestias ad eos!   ",
     },
     {
       title: "Code Concept",
-      snippet: "Lorem ipsum dolor sit amet consectetur",
+      snippet:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt itaque hic dolores sequi enim officiis facere, adipisci necessitatibus totam magnam debitis magni fugiat a facilis nobis! Tempora, sequi consequatur. Est sint expedita aperiam cum alias fuga eligendi omnis, quia repellendus saepe eaque voluptate reprehenderit sapiente facilis rem nam error deleniti suscipit id quos modi odit laborum voluptates delectus? Minima veritatis eius nulla sint voluptatibus corrupti quos qui, expedita, delectus iure saepe commodi sunt? Dolorum ducimus consequatur doloremque architecto itaque, facilis corrupti consectetur! Pariatur consequatur et delectus assumenda sit. Aspernatur doloremque non quaerat blanditiis perferendis ipsum quae ut molestias ad eos!",
     },
   ];
   res.render("index", { title: "Home", blogs });
