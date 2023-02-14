@@ -1,2 +1,2 @@
-# express_App
-This is just a simple express server. That send files from an external files.
+# Express_App
+A simple express app that is used with view engine to power a blog website.
