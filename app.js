@@ -9,6 +9,7 @@ const app = express();
 // Connect to MongoDb
 const dbURI =
   "mongodb+srv://codeconcept:Erosion123@node-course.ina7eck.mongodb.net/node-tutorials?retryWrites=true&w=majority";
+  
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))
