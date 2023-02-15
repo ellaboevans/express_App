@@ -23,63 +23,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(morgan("dev"));
 
-// mongoose and mongo sandbox routes
-app.get("/add-blogs", (req, res) => {
-  const blog = new Blog({
-    title: "New Blog 2",
-    snippet: "About my new blog",
-    body: "More about my new blog",
-  });
-  blog
-    .save()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-app.get("/all-blogs", (req, res) => {
-  Blog.find()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-app.get("/single-blog", (req, res) => {
-  Blog.findById("63ec3844aff809674e9ce71b")
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 // routes
 app.get("/", (req, res) => {
-  const blogs = [
-    {
-      title: "Evans Elabo",
-      snippet:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt itaque hic dolores sequi enim officiis facere, adipisci necessitatibus totam magnam debitis magni fugiat a facilis nobis! Tempora, sequi consequatur. Est sint expedita aperiam cum alias fuga eligendi omnis, quia repellendus saepe eaque voluptate reprehenderit sapiente facilis rem nam error deleniti suscipit id quos modi odit laborum voluptates delectus? Minima veritatis eius nulla sint voluptatibus corrupti quos qui, expedita, delectus iure saepe commodi sunt? Dolorum ducimus consequatur doloremque architecto itaque, facilis corrupti consectetur! Pariatur consequatur et delectus assumenda sit. Aspernatur doloremque non quaerat blanditiis perferendis ipsum quae ut molestias ad eos!",
-    },
-    {
-      title: "Concept Creator",
-      snippet:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt itaque hic dolores sequi enim officiis facere, adipisci necessitatibus totam magnam debitis magni fugiat a facilis nobis! Tempora, sequi consequatur. Est sint expedita aperiam cum alias fuga eligendi omnis, quia repellendus saepe eaque voluptate reprehenderit sapiente facilis rem nam error deleniti suscipit id quos modi odit laborum voluptates delectus? Minima veritatis eius nulla sint voluptatibus corrupti quos qui, expedita, delectus iure saepe commodi sunt? Dolorum ducimus consequatur doloremque architecto itaque, facilis corrupti consectetur! Pariatur consequatur et delectus assumenda sit. Aspernatur doloremque non quaerat blanditiis perferendis ipsum quae ut molestias ad eos!   ",
-    },
-    {
-      title: "Code Concept",
-      snippet:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt itaque hic dolores sequi enim officiis facere, adipisci necessitatibus totam magnam debitis magni fugiat a facilis nobis! Tempora, sequi consequatur. Est sint expedita aperiam cum alias fuga eligendi omnis, quia repellendus saepe eaque voluptate reprehenderit sapiente facilis rem nam error deleniti suscipit id quos modi odit laborum voluptates delectus? Minima veritatis eius nulla sint voluptatibus corrupti quos qui, expedita, delectus iure saepe commodi sunt? Dolorum ducimus consequatur doloremque architecto itaque, facilis corrupti consectetur! Pariatur consequatur et delectus assumenda sit. Aspernatur doloremque non quaerat blanditiis perferendis ipsum quae ut molestias ad eos!",
-    },
-  ];
-  res.render("index", { title: "Home", blogs });
+  res.redirect("/blogs");
 });
 
 app.get("/about", (req, res) => {
@@ -121,6 +67,18 @@ app.get("/about", (req, res) => {
     },
   ];
   res.render("about", { title: "About", paragraphs });
+});
+
+// blogs routes
+app.get("/blogs", (req, res) => {
+  Blog.find()
+    .sort({ createdAt: -1 })
+    .then((result) => {
+      res.render("index", { title: "All Blogs", blogs: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.get("/blogs/create", (req, res) => {
