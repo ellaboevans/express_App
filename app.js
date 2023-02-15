@@ -1,20 +1,66 @@
 const express = require("express");
 const morgan = require("morgan");
-// console.log(morgan);
+const mongoose = require("mongoose");
+const Blog = require("./models/blog");
 
 // Express App
 const app = express();
 
+// Connect to MongoDb
+const dbURI =
+  "mongodb+srv://codeconcept:Erosion123@node-course.ina7eck.mongodb.net/node-tutorials?retryWrites=true&w=majority";
+mongoose
+  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) => app.listen(3000))
+  .catch((err) => console.log(err));
+mongoose.set("strictQuery", false);
+
 // Register view engine
 app.set("view engine", "ejs");
 
-app.listen(3000, "localhost", () => {
-  console.log("Server successfully running on port 3000");
-});
 // middleware & static files
+
 app.use(express.static("public"));
 app.use(morgan("dev"));
 
+// mongoose and mongo sandbox routes
+app.get("/add-blogs", (req, res) => {
+  const blog = new Blog({
+    title: "New Blog 2",
+    snippet: "About my new blog",
+    body: "More about my new blog",
+  });
+  blog
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get("/all-blogs", (req, res) => {
+  Blog.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get("/single-blog", (req, res) => {
+  Blog.findById("63ec3844aff809674e9ce71b")
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+// routes
 app.get("/", (req, res) => {
   const blogs = [
     {
