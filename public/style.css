@@ -77,7 +77,35 @@ h3 {
   margin-left: 20px;
 }
 /* index styles */
+.blogs a {
+  display: block;
+  margin: 40px 0;
+  padding-left: 30px;
+  border-left: 6px solid crimson;
+  border-radius: 5px;
+}
+.blogs a:hover h3 {
+  color: crimson;
+}
 /* details styles */
+.details {
+  position: relative;
+}
+.delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: crimson;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+.delete:hover {
+  background: #2c2c2c;
+}
+
 /* create styles */
 .create-blog form {
   max-width: 400px;
