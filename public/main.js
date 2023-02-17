@@ -1,8 +1,10 @@
+// Copyright Logic
 const year = document.querySelector("#year");
+console.log(year);
 let date = new Date();
 year.textContent = date.getFullYear();
 
-// Delete Blog
+// Delete Method on Frontend
 const trashcan = document.querySelector("a.delete");
 
 trashcan.addEventListener("click", (e) => {
