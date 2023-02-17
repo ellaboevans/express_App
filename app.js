@@ -18,7 +18,7 @@ mongoose
   .catch((err) => console.log(err));
   mongoose.set("strictQuery", true);
 
-// Register view engine
+// Register view engine   
 app.set("view engine", "ejs");
 
 // middleware & static files
