@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head.ejs") %>
+  <%- include("../partials/head.ejs") %>
   <body>
-    <%- include("./partials/nav.ejs")%>
+    <%- include("../partials/nav.ejs")%>
 
     <div class="details content">
       <h2><%= blog.title %></h2>
@@ -12,7 +12,7 @@
       <a class="delete" data-doc="<%= blog._id %>">Delete</a>
     </div>
 
-    <%- include("./partials/footer.ejs")%>
+    <%- include("../partials/footer.ejs")%>
     <script src="/main.js"></script>
   </body>
 </html>
