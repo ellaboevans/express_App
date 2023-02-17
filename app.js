@@ -3,12 +3,14 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 
+// Dotenv require
+require("dotenv").config();
+
 // Express App
 const app = express();
 
 // Connect to MongoDb
-const dbURI =
-  "mongodb+srv://codeconcept:Erosion123@node-course.ina7eck.mongodb.net/node-tutorials?retryWrites=true&w=majority";
+const dbURI = process.env.MONGO_DB_CONNECTION;
 
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
