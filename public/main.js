@@ -1,6 +1,6 @@
 // Copyright Logic
 const year = document.querySelector("#year");
-console.log(year);
+// console.log(year);
 let date = new Date();
 year.textContent = date.getFullYear();
 
@@ -19,3 +19,5 @@ trashcan.addEventListener("click", (e) => {
       console.log(err);
     });
 });
+
+
