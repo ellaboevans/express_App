@@ -1,6 +1,6 @@
 # gitignore
 node_modules/
 
-# dotenv file
+# dotenv
 .env
 
