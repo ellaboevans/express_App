@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 
 // Dotenv require
-require("dotenv").config();
+const dotenv = require("dotenv").config();
 
 // Express App
 const app = express();
