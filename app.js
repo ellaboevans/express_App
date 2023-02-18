@@ -10,16 +10,15 @@ const dotenv = require("dotenv").config();
 const app = express();
 
 // Connect to MongoDb
-const dbURI =
-  "mongodb+srv://codeconcept:Erosion123@node-course.ina7eck.mongodb.net/node-tutorials?retryWrites=true&w=majority";
+const dbURI = process.env.MONGO_DB_CONNECTION;
 
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
-  mongoose.set("strictQuery", true);
+mongoose.set("strictQuery", true);
 
-// Register view engine   
+// Register view engine
 app.set("view engine", "ejs");
 
 // middleware & static files
