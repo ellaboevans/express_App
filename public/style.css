@@ -61,10 +61,17 @@ nav a:hover {
 
 footer {
   color: #777;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 80px auto 20px;
   padding: 1rem;
   border-top: 1px solid #ddd;
+}
+
+.links{
+  margin-left: 20px;
 }
 h2 {
   margin-bottom: 40px;
