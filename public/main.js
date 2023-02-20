@@ -28,4 +28,3 @@ const deleteOnFrontend = () => {
 deleteOnFrontend();
 
 
-// alert("Connected to all pages!");
